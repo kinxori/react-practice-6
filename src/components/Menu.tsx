@@ -1,10 +1,17 @@
 //@ts-ignore
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, useContext } from "react";
 import "./menus.css";
+import { UserContext } from "./ContentMenu";
 
-export default function Menu({tabs}: {tabs:Record<string,ReactNode>[]}) {
 
-  console.log("tabs: ", tabs)
+
+
+export default function Menu() {
+
+
+  const tabs = useContext(UserContext)
+
+
   
   const [content, setContent] = useState(tabs?.[0]?.label); // este es una buena nota (Gran tipo de contenido)
 

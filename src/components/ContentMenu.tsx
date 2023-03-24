@@ -1,7 +1,9 @@
 //@ts-ignore
 import "./menus.css"
-
 import Menu from "./Menu";
+import { createContext, Provider } from "react";
+
+export const UserContext = createContext<{ label: string, menuContent: JSX.Element}[]>([{ label: "", menuContent: <></>}]);
 
 const tabs = [
     { label: "Settings", menuContent: 
@@ -45,6 +47,8 @@ const tabs = [
 export default function ContentMenu(){
 
     return(
-        <Menu tabs={tabs} />
+        <UserContext.Provider value={tabs}>
+            <Menu />
+        </UserContext.Provider>
         )
 }
